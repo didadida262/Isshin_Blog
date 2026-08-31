@@ -7,7 +7,7 @@
     "npm": ">=10.0.0"
   },
   "scripts": {
-    "go": "hexo clean && hexo g && hexo s",
+    "go": "hexo clean && hexo g --draft && hexo s --draft",
     "gogit": "hexo clean && hexo g && hexo d",
     "build": "hexo clean && hexo generate",
     "clean": "hexo clean",

@@ -11,7 +11,8 @@ if theme.aside.card_recent_post.enable
         - let title = article.title || _p('no_title')
         - let no_cover = article.cover === false || !theme.cover.aside_enable ? 'no-cover' : ''
         - let post_cover = article.cover
-        .aside-list-item(class=no_cover)
+        - const isUnpublished = show_drafts() && is_unpublished(article)
+        .aside-list-item(class=[no_cover, isUnpublished ? 'is-unpublished' : ''].filter(Boolean).join(' '))
           if post_cover && theme.cover.aside_enable
             a.thumbnail(href=url_for(link) title=title)
               if article.cover_type === 'img'
@@ -19,7 +20,10 @@ if theme.aside.card_recent_post.enable
               else
                 div(style=`background: ${post_cover}`)
           .content
-            a.title(href=url_for(link) title=title)= title
+            a.title(href=url_for(link) title=title)
+              = title
+              if isUnpublished
+                span.local-draft-badge 未发布
             if theme.aside.card_recent_post.sort === 'updated'
               time(datetime=date_xml(article.updated) title=_p('post.updated') + ' ' + full_date(article.updated)) #[=date(article.updated, config.date_format)]
             else

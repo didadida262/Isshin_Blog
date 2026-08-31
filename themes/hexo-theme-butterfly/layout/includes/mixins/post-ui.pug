@@ -1,6 +1,7 @@
 mixin postUI(posts)
   each article , index in page.posts.data
-    .recent-post-item
+    - const isUnpublished = show_drafts() && is_unpublished(article)
+    .recent-post-item(class=isUnpublished ? 'is-unpublished' : '')
       -
         let link = article.link || article.path
         let title = article.title || _p('no_title')
@@ -23,6 +24,8 @@ mixin postUI(posts)
           if (is_home() && (article.top || article.sticky > 0))
             i.fas.fa-thumbtack.sticky
           = title
+          if isUnpublished
+            span.local-draft-badge 未发布
         .article-meta-wrap
           if (theme.post_meta.page.date_type)
             span.post-meta-date
