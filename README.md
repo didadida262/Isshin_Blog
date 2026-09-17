@@ -95,9 +95,9 @@ some test
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js (v18 or higher)
+- Node.js (v20 or higher)
 - Git
-- npm or yarn
+- pnpm (v9 or higher)
 
 ### Installation
 
@@ -107,24 +107,24 @@ git clone https://github.com/didadida262/hhvcg_Blog_v2.git
 cd hhvcg_Blog_v2
 
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm run go
+pnpm go
 ```
 
 ### Available Scripts
 
 ```bash
 # Development
-npm run go          # Clean, generate, and start server
-npm run server      # Start Hexo server
-npm run build       # Generate static files
-npm run clean       # Clean cache and generated files
+pnpm go          # Clean, generate, and start server
+pnpm server      # Start Hexo server
+pnpm build       # Generate static files
+pnpm clean       # Clean cache and generated files
 
 # Deployment
-npm run gogit       # Clean, generate, and deploy to Git
-npm run deploy      # Deploy to configured repository
+pnpm gogit       # Clean, generate, and deploy to Git
+pnpm deploy      # Deploy to configured repository
 ```
 
 ---

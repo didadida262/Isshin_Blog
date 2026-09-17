@@ -10,7 +10,10 @@ public/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-# package-lock.json - 需要提交到仓库，以便 Cloudflare Pages 使用 npm
+pnpm-debug.log*
+# pnpm-lock.yaml 需要提交，部署环境用 pnpm 安装依赖
+package-lock.json
+yarn.lock
 tests/**/coverage/
 # Editor directories and files
 .idea
